@@ -1,9 +1,24 @@
-# ------------- LESSON 3, EXERCISE 3 -------------------
+# ------------- LESSON 3, EXERCISE 4 -------------------
 # User enters 3 numbers, display the counts of positive and negative values
 
+# ----- 1st way ---------
 positive, negative = 0, 0
 
+first_number = input('enter the first number>')
+second_number = input('enter the second number>')
+third_number = input('enter the third number>')
+
+num3_list = first_number + second_number + third_number
+
+negative = num3_list.count('-')
+positive = 3 - negative
+
+print(f'There are {positive} positive and {negative} negative values.')
 # ----- 1st way ---------
+
+# ------- 2nd way -------
+positive, negative = 0, 0
+
 numbers_list = [input('enter the first number>').strip(),
                 input('enter the second number>').strip(),
                 input('enter the third number>').strip()]
@@ -22,9 +37,9 @@ if err == 0:
     print(f'There are {positive} positive and {negative} negative values.')
 else:
     pass
-# ----- 1st way ---------
-
 # ------- 2nd way -------
+
+# ------- 3rd way -------
 positive, negative = 0, 0
 try:
 
@@ -43,4 +58,4 @@ try:
 except Exception as ex_:
     print(ex_)
     print('!__check your input data__!')
-# ------- 2nd way -------
+# ------- 3rd way -------
