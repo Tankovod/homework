@@ -2,9 +2,9 @@
 # User enters 3 numbers, find average with precision 3
 
 # -------- 1st way ---------
-first_number = int(input('enter first number>'))
-second_number = int(input('enter first number>'))
-third_number = int(input('enter first number>'))
+first_number = int(input('enter the first number>'))
+second_number = int(input('enter the second number>'))
+third_number = int(input('enter the third number>'))
 
 summa = first_number + second_number + third_number
 print(round(summa / 3, 3))
