@@ -1,5 +1,5 @@
 # ------------- LESSON 3, EXERCISE 1 -------------------
-# User enter the statement, replace all gaps with '-' symbols by 2 different ways
+# User enters the statement, replace all gaps with '-' symbols by 2 different ways
 
 input_text = input('enter any text>')
 
