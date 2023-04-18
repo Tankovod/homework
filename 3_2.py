@@ -2,6 +2,15 @@
 # User enters 3 numbers, find average with precision 3
 
 # -------- 1st way ---------
+first_number = int(input('enter first number>'))
+second_number = int(input('enter first number>'))
+third_number = int(input('enter first number>'))
+
+summa = first_number + second_number + third_number
+print(round(summa / 3, 3))
+# -------- 1st way ---------
+
+# -------- 2nd way ---------
 numbers = []
 summ = 0
 
@@ -19,13 +28,4 @@ try:
 except Exception as ex_:
     print(ex_)
     print('!__check your input data__!')
-# -------- 1st way ---------
-
-# -------- 2nd way ---------
-# first_number = int(input('enter first number>'))
-# second_number = int(input('enter first number>'))
-# third_number = int(input('enter first number>'))
-#
-# summa = first_number + second_number + third_number
-# print(round(summa / 3, 3))
 # -------- 2nd way ---------
