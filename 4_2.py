@@ -2,10 +2,20 @@
 # Without using collections, write the program, that will create a dictionary to
 # count the number of entries of each letter in the text entered from the keyboard.
 
+# ----- 1st way -----
 input_text = input('Enter any text>')
 list_of_letters = list(input_text)
 
-print('Input line: ' + str(list(input_text)))
+count_of_letters_dict = {letter: list_of_letters.count(letter) for letter in list_of_letters}
+
+print('Count of letters: ' + str(count_of_letters_dict))
+# ----- 1st way -----
+
+# ----- 2nd way -----
+input_text = input('Enter any text>')
+list_of_letters = list(input_text)
+
+print('Input letters: ' + str(list(input_text)))
 
 count_of_letters_dict = {}
 
@@ -20,3 +30,4 @@ for letter in list_of_letters:
                 pass
 
 print('Count of letters: ' + str(count_of_letters_dict))
+# ----- 2nd way -----
