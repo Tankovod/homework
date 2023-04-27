@@ -1,9 +1,13 @@
 # ------------- LESSON 5, EXERCISE 1 -------------------
 # Show the first N entire numbers, multiple of M and more than K
 
-N = int(input('Show the amount of entire numbers>'))
-M = int(input('A multiple of>'))
-K = int(input('And more than>'))
+try:
+    N = int(input('Show the amount of entire numbers>'))
+    M = int(input('That are multiple of>'))
+    K = int(input('And more than>'))
+except ValueError:
+    print('Enter only entire numbers!')
+    raise ValueError
 
 amount_of_numbers = 0
 list_of_numbers = []
