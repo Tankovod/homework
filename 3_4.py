@@ -2,7 +2,6 @@
 # User enters 3 numbers, display the counts of positive and negative values
 
 # ----- 1st way ---------
-positive, negative = 0, 0
 
 first_number = input('enter the first number>')
 second_number = input('enter the second number>')
