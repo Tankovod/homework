@@ -1,5 +1,5 @@
 # ------------- LESSON 5, EXERCISE 3 -------------------
-# Display even numbers from 2 to N 5 per line
+# Display 5 per line even numbers from 2 to N
 
 # ----- 1st way -----
 N = int(input('Enter maximum number>'))
