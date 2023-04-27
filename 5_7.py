@@ -2,7 +2,12 @@
 # In witcher's world there are coins of denomination 1, 5, 10, 25
 # Write the program that defines minimal amount of coins to pay to the witcher
 
-sum_of_gold = int(input('How much gold should be given to the witcher?> '))
+sum_of_gold = 0
+while sum_of_gold == 0:
+    try:
+        sum_of_gold = int(input('How much gold should be given to the witcher?> '))
+    except ValueError:
+        print('Exception ! Try any whole number !')
 
 # ----- 1st way -----
 extra_coins = sum_of_gold % 25
@@ -42,11 +47,11 @@ print(f'~~~ You need {coin25} coins with value 25, {coin10} with value 10,'
 # ----- 3rd way -----
 coin1, coin5, coin10, coin25 = 0, 0, 0, 0
 
-while 25 * (coin25 + 1) < sum_of_gold:
+while 25 * (coin25 + 1) <= sum_of_gold:
     coin25 += 1
-while 10 * (coin10 + 1) < sum_of_gold - coin25 * 25:
+while 10 * (coin10 + 1) <= sum_of_gold - coin25 * 25:
     coin10 += 1
-while 5 * (coin5 + 1) < sum_of_gold - coin25 * 25 - coin10 * 10:
+while 5 * (coin5 + 1) <= sum_of_gold - coin25 * 25 - coin10 * 10:
     coin5 += 1
 while 1 and coin1 < sum_of_gold - coin25 * 25 - coin10 * 10 - coin5 * 5:
     coin1 += 1
