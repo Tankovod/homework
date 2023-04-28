@@ -69,3 +69,14 @@ coin1 = (sum_of_gold - coin25 * 25 - coin10 * 10 - coin5 * 5) // 1
 print(f'~~~ You need {coin25} coins with value 25, {coin10} with value 10,'
       f' {coin5} with value 5 and {coin1} with value 1.~~~')
 # ----- 4th way -----
+
+# ----- 5th way -----
+coin_list, some_gold = [], sum_of_gold
+for numb in [25, 10, 5, 1]:
+    coin_list.append(coin := some_gold // numb)
+    some_gold -= coin * numb
+
+print(f'~~~ You need {coin_list[0]} coins with value 25, {coin_list[1]} with value 10,'
+      f' {coin_list[2]} with value 5 and {coin_list[3]} with value 1.~~~')
+# ----- 5th way -----
+
