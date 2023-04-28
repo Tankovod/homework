@@ -59,3 +59,13 @@ while 1 and coin1 < sum_of_gold - coin25 * 25 - coin10 * 10 - coin5 * 5:
 print(f'~~~ You need {coin25} coins with value 25, {coin10} with value 10,'
       f' {coin5} with value 5 and {coin1} with value 1.~~~')
 # ----- 3rd way -----
+
+# ----- 4th way -----
+coin25 = sum_of_gold // 25
+coin10 = (sum_of_gold - coin25 * 25) // 10
+coin5 = (sum_of_gold - coin25 * 25 - coin10 * 10) // 5
+coin1 = (sum_of_gold - coin25 * 25 - coin10 * 10 - coin5 * 5) // 1
+
+print(f'~~~ You need {coin25} coins with value 25, {coin10} with value 10,'
+      f' {coin5} with value 5 and {coin1} with value 1.~~~')
+# ----- 4th way -----
