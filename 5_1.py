@@ -11,7 +11,7 @@ except ValueError:
 
 amount_of_numbers = 0
 list_of_numbers = []
-sort_out = 0
+sort_out = K
 
 while amount_of_numbers < N:
     if sort_out % M == 0 and sort_out > K:
@@ -21,3 +21,4 @@ while amount_of_numbers < N:
 
 print(list_of_numbers)
 
+print(-6 % 2)
