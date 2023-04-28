@@ -21,4 +21,3 @@ while amount_of_numbers < N:
 
 print(list_of_numbers)
 
-print(-6 % 2)
