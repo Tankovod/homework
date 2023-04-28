@@ -3,6 +3,7 @@
 # Write the program that defines minimal amount of coins to pay to the witcher
 
 sum_of_gold = 0
+c4, c3, c2, c1 = 25, 10, 5, 1
 while sum_of_gold == 0:
     try:
         sum_of_gold = int(input('How much gold should be given to the witcher?> '))
@@ -10,13 +11,13 @@ while sum_of_gold == 0:
         print('Exception ! Try any whole number !')
 
 # ----- 1st way -----
-extra_coins = sum_of_gold % 25
-coin25 = (sum_of_gold - extra_coins) / 25
-coin10 = (extra_coins - extra_coins % 10) / 10
-extra_coins = extra_coins - coin10 * 10
-coin5 = (extra_coins - extra_coins % 5) / 5
-extra_coins = extra_coins - coin5 * 5
-coin1 = (extra_coins - extra_coins % 1) / 1
+extra_coins = sum_of_gold % c4
+coin25 = (sum_of_gold - extra_coins) / c4
+coin10 = (extra_coins - extra_coins % c3) / c3
+extra_coins = extra_coins - coin10 * c3
+coin5 = (extra_coins - extra_coins % c2) / c2
+extra_coins = extra_coins - coin5 * c2
+coin1 = (extra_coins - extra_coins % c1) / c1
 
 print(f'~~~ You need {int(coin25)} coins with value 25, {int(coin10)} with value 10,'
       f' {int(coin5)} with value 5 and {int(coin1)} with value 1.~~~')
@@ -35,10 +36,10 @@ def coin_plus(coins, all_gold, coin_number):
 
 final_coins = 0
 
-final_coins, coin25 = coin_plus(final_coins, sum_of_gold, 25)
-final_coins, coin10 = coin_plus(final_coins, sum_of_gold, 10)
-final_coins, coin5 = coin_plus(final_coins, sum_of_gold, 5)
-final_coins, coin1 = coin_plus(final_coins, sum_of_gold, 1)
+final_coins, coin25 = coin_plus(final_coins, sum_of_gold, c4)
+final_coins, coin10 = coin_plus(final_coins, sum_of_gold, c3)
+final_coins, coin5 = coin_plus(final_coins, sum_of_gold, c2)
+final_coins, coin1 = coin_plus(final_coins, sum_of_gold, c1)
 
 print(f'~~~ You need {coin25} coins with value 25, {coin10} with value 10,'
       f' {coin5} with value 5 and {coin1} with value 1.~~~')
@@ -47,13 +48,13 @@ print(f'~~~ You need {coin25} coins with value 25, {coin10} with value 10,'
 # ----- 3rd way -----
 coin1, coin5, coin10, coin25 = 0, 0, 0, 0
 
-while 25 * (coin25 + 1) <= sum_of_gold:
+while c4 * (coin25 + 1) <= sum_of_gold:
     coin25 += 1
-while 10 * (coin10 + 1) <= sum_of_gold - coin25 * 25:
+while c3 * (coin10 + 1) <= sum_of_gold - coin25 * c4:
     coin10 += 1
-while 5 * (coin5 + 1) <= sum_of_gold - coin25 * 25 - coin10 * 10:
+while c2 * (coin5 + 1) <= sum_of_gold - coin25 * c4 - coin10 * c3:
     coin5 += 1
-while 1 and coin1 < sum_of_gold - coin25 * 25 - coin10 * 10 - coin5 * 5:
+while c1 and coin1 < sum_of_gold - coin25 * c4 - coin10 * c3 - coin5 * c2:
     coin1 += 1
 
 print(f'~~~ You need {coin25} coins with value 25, {coin10} with value 10,'
@@ -61,10 +62,10 @@ print(f'~~~ You need {coin25} coins with value 25, {coin10} with value 10,'
 # ----- 3rd way -----
 
 # ----- 4th way -----
-coin25 = sum_of_gold // 25
-coin10 = (sum_of_gold - coin25 * 25) // 10
-coin5 = (sum_of_gold - coin25 * 25 - coin10 * 10) // 5
-coin1 = (sum_of_gold - coin25 * 25 - coin10 * 10 - coin5 * 5) // 1
+coin25 = sum_of_gold // c4
+coin10 = (sum_of_gold - coin25 * c4) // c3
+coin5 = (sum_of_gold - coin25 * c4 - coin10 * c3) // c2
+coin1 = (sum_of_gold - coin25 * c4 - coin10 * c3 - coin5 * c2) // c1
 
 print(f'~~~ You need {coin25} coins with value 25, {coin10} with value 10,'
       f' {coin5} with value 5 and {coin1} with value 1.~~~')
@@ -72,7 +73,7 @@ print(f'~~~ You need {coin25} coins with value 25, {coin10} with value 10,'
 
 # ----- 5th way -----
 coin_list, some_gold = [], sum_of_gold
-for numb in [25, 10, 5, 1]:
+for numb in [c4, c3, c2, c1]:
     coin_list.append(coin := some_gold // numb)
     some_gold -= coin * numb
 
