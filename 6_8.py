@@ -1,4 +1,4 @@
-# ------------- LESSON 6, EXERCISE 3 -------------------
+# ------------- LESSON 6, EXERCISE 8 -------------------
 # There is the dictionary where keys are country name and values are
 # cities from this country. Show from what country an input city
 

@@ -1,4 +1,4 @@
-# ------------- LESSON 6, EXERCISE 4 -------------------
+# ------------- LESSON 6, EXERCISE 9 -------------------
 # There is dictionary of dictionaries. Show names who doesn't have an email
 
 users_dict = {1: {'name': 'Jack', 'surname': 'Daniels', 'phone': '+45645344', 'email': ''},
