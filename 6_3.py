@@ -8,4 +8,5 @@ def displace_list(n):
     else:
         return 'Too big number to displace'
 
+
 print(displace_list(int(input('Number of symbols in list to displace>'))))

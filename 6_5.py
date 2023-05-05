@@ -11,6 +11,5 @@ def reverse_the_list(lst):
         lst.pop(0)
     return lst
 
-    # return [*map(lambda x: int(x), [*filter(lambda x: isinstance(x, str), lst)])]
 
 print(reverse_the_list(list_to_reverse))
