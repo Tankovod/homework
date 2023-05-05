@@ -28,9 +28,9 @@ def filter_for_string2(list_to_filter, lngth):
     return list_to_filter
 # ---- 2nd way ----
 
-list_for_filter = [1, 2, 3, [4, '234', 45, 345, '34', [234, 0, '34', '90'], [234, '34']],
+list_for_filter = [1, 2, [3], 3, [4, '234', 45, 345, '34', [234, 0, '34', '90'], [234, '34']],
                    'efg', '234', None, 234, 234, True, {'key': 'value'}, 'rsgh', ['345', '00000', '3454', 345, 345],
-                   '325', [34, 34, [34, 34, '7'], [1, 2]]]
+                   '325', [34, 34, [34, 34, '7'], [1, 2]], [3, 5]]
 
 print(filter_for_string2(list_for_filter, len(list_for_filter)))
 print(filter_for_string(list_for_filter))
