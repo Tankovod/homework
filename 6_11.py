@@ -1,6 +1,6 @@
 # ------------- LESSON 6, EXERCISE 11 -------------------
 # Write function generator, received int count and return count amount simple numbers
-from math import sqrt
+
 
 def generate_simple_nums(count):
     number = 2
