@@ -5,9 +5,10 @@
 def generate_simple_nums(count):
     number = 1
     for elem in range(1, count + 1):
-        while any([number for i in [2, 3, 4, 5, 6, 7, 8, 9] if number % i == 0]):
-            number += 1
-        yield number
+        if number != 1:
+            while any([number for i in [2, 3, 5, 7] if number % i == 0]) and number not in [2, 3, 5, 7]:
+                number += 1
+            yield number
         number += 1
 
 
