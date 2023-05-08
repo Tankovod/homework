@@ -4,10 +4,12 @@
 
 def generate_simple_nums(count):
     number = 1
+    simple_numbs = []
     for elem in range(1, count + 1):
         if number != 1:
-            while any([number for i in [2, 3, 5, 7] if number % i == 0]) and number not in [2, 3, 5, 7]:
+            while any([number for i in simple_numbs if number % i == 0]) and number not in [2, 3, 5, 7]:
                 number += 1
+            simple_numbs.append(number)
             yield number
         number += 1
 
