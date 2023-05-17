@@ -9,6 +9,7 @@ class Category:
     @classmethod
     def add(cls, ctgr: str, is_publ: bool) -> int:
         """ Make new category dict in list if it's name doesn't exist in any dict
+
         :param ctgr: name of category
         :param is_publ: is category published
         :return: index of new category
@@ -37,6 +38,7 @@ class Category:
     @classmethod
     def update(cls, ctgr: str, is_publ: bool, index: int) -> None:
         """ Update values in category dict if input index is not out of range, else add new item to list
+
         :param ctgr: name of category
         :param is_publ: is category published
         :param index: index of category in list
