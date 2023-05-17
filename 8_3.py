@@ -2,72 +2,73 @@
 # Realize class Category
 
 class Category:
-    def __init__(self, categories: list[dict[str: str, str: bool]]):
-        self.categories = categories
+    categories = [{'name': 'bus', 'is_published': True}, {'name': 'mitsubishi', 'is_published': True},
+                  {'name': 'landscape', 'is_published': False}, {'name': 'laptop', 'is_published': True},
+                  {'name': 'box', 'is_published': False}]
 
-    def add(self, ctgr: str, is_publ: bool) -> int:
-        """
-        Make new category dict in list if it's name doesn't exist in any dict
+    @classmethod
+    def add(cls, ctgr: str, is_publ: bool) -> int:
+        """ Make new category dict in list if it's name doesn't exist in any dict
         :param ctgr: name of category
         :param is_publ: is category published
         :return: index of new category
         """
-        for categry in self.categories:
+        for categry in cls.categories:
             if ctgr in categry:
                 raise ValueError
         else:
-            self.categories.append(dict(zip(['name', 'is_published'], [ctgr, is_publ])))
-            for categry in self.categories:
+            cls.categories.append(dict(zip(['name', 'is_published'], [ctgr, is_publ])))
+            for categry in cls.categories:
                 if categry['name'] == ctgr:
-                    return self.categories.index(categry)
+                    return cls.categories.index(categry)
 
-    def get(self, index: int) -> str:
-        if index in range(len(self.categories)):
-            return self.categories[index]
+    @classmethod
+    def get(cls, index: int) -> str:
+        if index in range(len(cls.categories)):
+            return cls.categories[index]
         else:
             raise IndexError
 
-    def delete(self, index: int) -> None:
-        if index in range(len(self.categories)):
-            self.categories.pop(index)
+    @classmethod
+    def delete(cls, index: int) -> None:
+        if index in range(len(cls.categories)):
+            cls.categories.pop(index)
 
-    def update(self, ctgr: str, is_publ: bool, index: int) -> None:
-        """
-        Update values in category dict if input index is not out of range, else add new item to list
+    @classmethod
+    def update(cls, ctgr: str, is_publ: bool, index: int) -> None:
+        """ Update values in category dict if input index is not out of range, else add new item to list
         :param ctgr: name of category
         :param is_publ: is category published
         :param index: index of category in list
         :return: None
         """
-        if index in range(len(self.categories)):
-            self.categories[index]['name'] = ctgr
-            self.categories[index]['is_published'] = is_publ
-        elif ctgr not in self.categories:
-            self.add(ctgr, is_publ)
+        if index in range(len(cls.categories)):
+            cls.categories[index]['name'] = ctgr
+            cls.categories[index]['is_published'] = is_publ
+        elif ctgr not in cls.categories:
+            cls.add(ctgr, is_publ)
         else:
             raise ValueError
 
-    def make_published(self, index: int) -> None:
-        if index in range(len(self.categories)):
-            self.categories[index]['is_published'] = True
+    @classmethod
+    def make_published(cls, index: int) -> None:
+        if index in range(len(cls.categories)):
+            cls.categories[index]['is_published'] = True
         else:
             raise IndexError
 
-    def make_unpublished(self, index: int) -> None:
-        if index in range(len(self.categories)):
-            self.categories[index]['is_published'] = False
+    @classmethod
+    def make_unpublished(cls, index: int) -> None:
+        if index in range(len(cls.categories)):
+            cls.categories[index]['is_published'] = False
         else:
             raise IndexError
 
 
-category = Category([{'name': 'bus', 'is_published': True}, {'name': 'mitsubishi', 'is_published': True},
-                     {'name': 'landscape', 'is_published': False}, {'name': 'laptop', 'is_published': True},
-                     {'name': 'box', 'is_published': False}])
-
-print(category.add('tables', False))
-print(category.get(5))
-category.update('kitchen', True, 10)
-category.delete(1)
-category.make_published(1)
-category.make_unpublished(1)
-print(category.categories)
+print(Category.add('tables', False))
+print(Category.get(0))
+Category.update('kitchen', True, 10)
+Category.delete(1)
+Category.make_published(1)
+Category.make_unpublished(1)
+print(Category.categories)

@@ -21,16 +21,14 @@ class ConfigParser:
         self.rslt = self.dict()
 
     def __str__(self) -> str:
-        """
-        Format dict to str
+        """ Format dict to str
         :return: string
         """
         res = ['\n'.join(['[' + i[0] + ']', '\n'.join([f'{key}={value}' for key, value in i[1].items()])]) for i in self.rslt.items()]
         return '\n'.join(res)
 
     def dict(self) -> dict[str: dict[str: str]]:
-        """
-        From config file make dictionary
+        """ From config file make dictionary
         :return: dict where values are dictionaries
         """
         lst = [((i.strip()).replace(']', '').split('\n')) for i in self.strng.split('[') if ']' in i]
@@ -38,8 +36,7 @@ class ConfigParser:
         return dct
 
     def get(self, sect_name: str, param: str) -> str:
-        """
-        Get value from dict
+        """ Get value from dict
         :param sect_name: key from external dict
         :param param: key from internal dict
         :return: value from internal dict
@@ -51,8 +48,7 @@ class ConfigParser:
             raise ValueError
 
     def add_section(self, sect_name: str) -> str:
-        """
-        Add new section to dict
+        """ Add new section to dict
         :param sect_name: name of section in dictionary
         :return: string of success
         """
@@ -64,8 +60,7 @@ class ConfigParser:
             raise ValueError
 
     def add_param(self, sect_name: str, param: str, value: str) -> str:
-        """
-        Add new param to section in dict
+        """ Add new param to section in dict
         :return: string of success
         """
         dct = self.rslt
@@ -91,8 +86,7 @@ class ConfigParser:
         return param in self.rslt[sect_name]
 
     def del_section(self, sect_name: str) -> str:
-        """
-        Delete section from dict
+        """ Delete section from dict
         :return: string of success
         """
         if sect_name in self.rslt:
@@ -100,8 +94,7 @@ class ConfigParser:
             return f'Section {sect_name} deleted successfully'
 
     def del_param(self, sect_name: str, param: str) -> str:
-        """
-        Delete parameter from section in dict
+        """ Delete parameter from section in dict
         :return: string of success
         """
         if param in self.rslt[sect_name]:
@@ -118,4 +111,4 @@ data.del_param('Section1', 'key1')
 data.add_param('abc', 'name', 'surname')
 print(data.has_section('Section1'), data.has_param('Section1', 'aaa'))
 print(data.rslt)
-print(data.__str__())
+print(data)
