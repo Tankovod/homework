@@ -43,8 +43,7 @@ class CardCreated:
             original_card = cls.not_dupl_card_numb(new_card_numb)
             while not original_card:
                 new_card_numb = str(int(new_card_numb) + 1)
-                while len(new_card_numb) < 16:
-                    new_card_numb = '0' + new_card_numb
+                new_card_numb = '0' * (16 - len(new_card_numb)) + new_card_numb  # new
                 original_card = cls.not_dupl_card_numb(new_card_numb)
 
             new_card._Card__card_number = new_card_numb
