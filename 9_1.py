@@ -20,10 +20,6 @@ class Card:
     def card_number(self):
         return self.__card_number
 
-    @card_number.setter
-    def card_number(self, val: str) -> None:
-        self.__card_number = val
-
     @discount.setter
     def discount(self, val: int) -> None:
         if isinstance(val, int) and val >= 1:
@@ -32,31 +28,31 @@ class Card:
             raise ValueDiscountError('Check your discount value')
 
 
-class CardCreated(Card):
+class CardCreated:
     card: list = []
 
     @classmethod
     def create(cls, amount: int, discount: int = None) -> None:
         for i in range(amount):
-            new_card = cls()
+            new_card = Card()
 
             if discount is not None:
                 new_card.discount = discount
 
-            new_card_numb = '0000000011111111'
+            new_card_numb = '0000000000000001'
             original_card = cls.not_dupl_card_numb(new_card_numb)
             while not original_card:
-                new_card_numb = str(randint(1000, 9999999999999999))
+                new_card_numb = str(int(new_card_numb) + 1)
                 while len(new_card_numb) < 16:
                     new_card_numb = '0' + new_card_numb
                 original_card = cls.not_dupl_card_numb(new_card_numb)
 
-            new_card.card_number = new_card_numb
+            new_card._Card__card_number = new_card_numb
 
             cls.card.append(new_card)
 
     @classmethod
-    def not_dupl_card_numb(cls, card_numb) -> bool:
+    def not_dupl_card_numb(cls, card_numb: str) -> bool:
         for crd in cls.card:
             if card_numb in crd.card_number:
                 return False
