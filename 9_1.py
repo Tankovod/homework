@@ -50,13 +50,6 @@ class CardCreated:
 
             cls.card.append(new_card)
 
-    # @classmethod
-    # def not_dupl_card_numb(cls, card_numb: str) -> bool:
-    #     for crd in cls.card:
-    #         if card_numb in crd.card_number:
-    #             return False
-    #     return True
-
 
 CardCreated.create(10, 3)
 card_dict = [{'card_number': i.card_number, 'discount': i.discount} for i in CardCreated.card]
