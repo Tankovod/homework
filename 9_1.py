@@ -39,23 +39,23 @@ class CardCreated:
             if discount is not None:
                 new_card.discount = discount
 
+            card_numbers = [card.card_number for card in cls.card]
             new_card_numb = '0000000000000001'
-            original_card = cls.not_dupl_card_numb(new_card_numb)
-            while not original_card:
+
+            while new_card_numb not in card_numbers:
                 new_card_numb = str(int(new_card_numb) + 1)
                 new_card_numb = '0' * (16 - len(new_card_numb)) + new_card_numb
-                original_card = cls.not_dupl_card_numb(new_card_numb)
 
             new_card._Card__card_number = new_card_numb
 
             cls.card.append(new_card)
 
-    @classmethod
-    def not_dupl_card_numb(cls, card_numb: str) -> bool:
-        for crd in cls.card:
-            if card_numb in crd.card_number:
-                return False
-        return True
+    # @classmethod
+    # def not_dupl_card_numb(cls, card_numb: str) -> bool:
+    #     for crd in cls.card:
+    #         if card_numb in crd.card_number:
+    #             return False
+    #     return True
 
 
 CardCreated.create(10, 3)
