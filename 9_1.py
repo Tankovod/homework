@@ -40,9 +40,11 @@ class CardCreated:
                 new_card.discount = discount
 
             card_numbers = [card.card_number for card in cls.card]
-            new_card_numb = '0000000000000001'
 
-            while new_card_numb in card_numbers:
+            if not card_numbers:
+                new_card_numb = '0000000000000001'
+            else:
+                new_card_numb = max(card_numbers)
                 new_card_numb = str(int(new_card_numb) + 1)
                 new_card_numb = '0' * (16 - len(new_card_numb)) + new_card_numb
 
