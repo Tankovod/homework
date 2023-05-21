@@ -39,7 +39,7 @@ class CardCreated:
             if discount is not None:
                 new_card.discount = discount
 
-            card_numbers = [card.card_number for card in cls.card]
+            card_numbers = [int(card.card_number) for card in cls.card]
 
             if not card_numbers:
                 new_card_numb = '0000000000000001'
@@ -56,11 +56,6 @@ class CardCreated:
 CardCreated.create(10, 3)
 card_dict = [{'card_number': i.card_number, 'discount': i.discount} for i in CardCreated.card]
 print(*card_dict)
-
-
-
-
-
 
 
 
