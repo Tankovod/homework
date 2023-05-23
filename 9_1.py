@@ -1,6 +1,5 @@
 # ------------- LESSON 9, EXERCISE 1 -------------------
 # Create classes Card, CardCreate
-from random import randint
 
 
 class ValueDiscountError(Exception):
