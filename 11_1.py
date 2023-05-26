@@ -47,7 +47,7 @@ class PydentCat(BaseModel):
         get_cat_sql = "SELECT name, is_published FROM category"
         pd_models = []
         for row in cursor.execute(get_cat_sql):
-            dct = dict(zip(('name', 'is_published'), (row)))
+            dct = dict(zip(('name', 'is_published'), row))
             pd_models.append(cls(**dct))
         connection.close()
         return pd_models
