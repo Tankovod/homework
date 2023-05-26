@@ -23,7 +23,7 @@ class RegPydenticModel(BaseModel):
             return pd_models
 
     @classmethod
-    def to_csv(cls, ob, file: str):
+    def to_csv(cls, ob, file: str) -> None:
         lst = [dict(o) for o in ob]
 
         with open(file, 'w', encoding='utf-8') as file:
