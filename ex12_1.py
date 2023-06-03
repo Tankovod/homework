@@ -1,12 +1,20 @@
 # ------------- LESSON 11, EXERCISE 1 -------------------
 # make some tables with relations
 
-from sqlalchemy import Column, INT, VARCHAR, ForeignKey, TEXT, DECIMAL
-from sqlalchemy.orm import DeclarativeBase, declared_attr
+
+from datetime import datetime
+from typing import Optional, List, Type
+
+from sqlalchemy import Column, INT, VARCHAR, TIMESTAMP, ForeignKey, TEXT, BOOLEAN, create_engine, DECIMAL, FLOAT
+from sqlalchemy.orm import DeclarativeBase, declared_attr, sessionmaker, relationship
+from sqlalchemy.exc import IntegrityError
 
 
 class Base(DeclarativeBase):
     id = Column(INT, primary_key=True)
+
+    engine = create_engine('postgresql://postgres:postgres@localhost:5432/test')
+    session = sessionmaker(bind=engine)
 
     @declared_attr
     def __tablename__(cls):
@@ -14,7 +22,7 @@ class Base(DeclarativeBase):
 
 
 class Shop(Base):
-    address = Column(VARCHAR(127), nullable=False)
+    address = Column(VARCHAR(127), nullable=False, unique=True)
 
 
 class ShopProduct(Base):
@@ -26,7 +34,7 @@ class ShopProduct(Base):
 class Product(Base):
     name = Column(VARCHAR(255), nullable=False)
     description = Column(TEXT, nullable=False)
-    slug = Column(VARCHAR(255), nullable=False)
+    slug = Column(VARCHAR(255), nullable=False, unique=True)
     category_id = Column(INT, ForeignKey('category.id', ondelete='NO ACTION'), nullable=False)
     price = Column(DECIMAL(10, 2), nullable=False)
     image = Column(VARCHAR(255), nullable=True)  # path to image
@@ -34,7 +42,7 @@ class Product(Base):
 
 class Category(Base):
     name = Column(VARCHAR(255), nullable=False)
-    slug = Column(VARCHAR(255), nullable=False)
+    slug = Column(VARCHAR(255), nullable=False, unique=True)
     parent_id = Column(INT, ForeignKey('category.id', ondelete='SET NULL'), nullable=True)
 
 
@@ -47,5 +55,5 @@ class Customer(Base):
 
 
 class Role(Base):
-    name = Column(VARCHAR(127), nullable=False)
+    name = Column(VARCHAR(127), nullable=False, unique=True)
 
