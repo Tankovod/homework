@@ -1,10 +1,8 @@
 # ------------- LESSON 11, EXERCISE 1 -------------------
 # make some tables with relations
 
-
-
-from sqlalchemy import Column, INT, VARCHAR, ForeignKey, TEXT, create_engine, DECIMAL
-from sqlalchemy.orm import DeclarativeBase, declared_attr, sessionmaker
+from sqlalchemy import Column, INT, VARCHAR, ForeignKey, TEXT, DECIMAL
+from sqlalchemy.orm import DeclarativeBase, declared_attr
 
 
 class Base(DeclarativeBase):
